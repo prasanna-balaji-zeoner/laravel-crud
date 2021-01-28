@@ -13,9 +13,15 @@
 </div>
 <div class="col-sm-12">
     <h1 class="display-3">CRUD</h1>  
+
+<!-- Creating contact -->
     <div>
     <a style="margin: 19px;" href="{{ route('contacts.create')}}" class="btn btn-primary">New contact</a>
     </div>  
+
+<!-- ---------------- -->
+
+<!-- Displaying the Data from the model -->
   <table class="table table-striped">
     <thead>
         <tr>
@@ -38,14 +44,27 @@
             <td>{{$contact->city}}</td>
             <td>{{$contact->country}}</td>
             <td>
+<!-- -------- -->
+
+
+            <!-- Edit page  -->
                 <a href="{{ route('contacts.edit',$contact->id)}}" class="btn btn-primary">Edit</a>
             </td>
             <td>
+            <!-- -------- -->
+
+
+
+            <!-- Delete method  -->
                 <form action="{{ route('contacts.destroy', $contact->id)}}" method="post">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn-danger" type="submit">Delete</button>
                 </form>
+                <!-- ----- -->
+
+
+                
             </td>
         </tr>
         @endforeach
